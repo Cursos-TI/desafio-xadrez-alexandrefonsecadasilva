@@ -7,8 +7,6 @@ int main() {
     int movimentoRainha = 8;  // Rainha: 8 casas para a esquerda
 
     // ---------------- MOVIMENTO DA TORRE ----------------
-    // A Torre anda em linha reta (horizontal ou vertical).
-    // Aqui ela vai andar 5 casas para a direita.
     printf("Movimento da Torre:\n");
     for (int i = 1; i <= movimentoTorre; i++) {
         printf("Direita\n");
@@ -16,8 +14,6 @@ int main() {
     printf("\n");
 
     // ---------------- MOVIMENTO DO BISPO ----------------
-    // O Bispo anda na diagonal.
-    // Aqui ele vai andar 5 casas para cima e para a direita.
     printf("Movimento do Bispo:\n");
     int j = 1;
     while (j <= movimentoBispo) {
@@ -27,8 +23,6 @@ int main() {
     printf("\n");
 
     // ---------------- MOVIMENTO DA RAINHA ----------------
-    // A Rainha pode andar em todas as direções.
-    // Aqui ela vai andar 8 casas para a esquerda.
     printf("Movimento da Rainha:\n");
     int k = 1;
     do {
@@ -36,6 +30,31 @@ int main() {
         k++;
     } while (k <= movimentoRainha);
     printf("\n");
+
+    // ---------------- MOVIMENTO DO CAVALO ----------------
+    // O Cavalo anda em "L":
+    // 2 casas em uma direção (aqui: para baixo)
+    // + 1 casa perpendicular (aqui: para a esquerda)
+    // Requisito: loops aninhados (for + while).
+    printf("Movimento do Cavalo:\n");
+
+    int passosBaixo = 2;     // quantidade de casas para baixo
+    int passosEsquerda = 1;  // quantidade de casas para esquerda
+
+    // Loop externo (for) → movimenta 2 casas para baixo
+    for (int i = 1; i <= passosBaixo; i++) {
+        printf("Baixo\n");
+
+        // Quando o cavalo terminar o movimento "para baixo",
+        // executa o loop interno (while) para a esquerda.
+        if (i == passosBaixo) {
+            int cont = 1;
+            while (cont <= passosEsquerda) {
+                printf("Esquerda\n");
+                cont++;
+            }
+        }
+    }
 
     return 0;
 }
